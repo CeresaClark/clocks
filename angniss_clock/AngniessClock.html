@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>安格妮斯時鐘</title>
+        <meta charset="utf-8">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap'); </style>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+
+            .box{
+                position: absolute;
+                width: 700px;
+                height: 534px;
+                background: url(bg.png)no-repeat;
+            }
+
+            .hour,.min,.colon{
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                top: 120px;
+                line-height: 200px;
+                font-size: 210px;
+                text-align: center;
+                font-weight:lighter;
+                font-family: 'Pirata One', cursive;
+                background-image: url(texture.png);
+                color: transparent;
+                -webkit-background-clip: text;
+                filter: drop-shadow(0px 5px 5px #000000);
+            }
+            .hour{
+                left: 100px;
+                background-repeat: no-repeat;
+                background-size: 500px;
+                background-position: left;
+            }
+            .min{
+                left: 400px;
+                background-repeat: no-repeat;
+                background-size: 500px;
+                background-position: right;
+            }
+            .colon{
+                width: 100px;
+                left: 300px;
+                line-height: 180px;
+                background-repeat: no-repeat;
+                background-size: 500px;
+                background-position: center;
+            }
+
+            .day{
+                position: absolute;
+                width: 500px;
+                height: 100px;
+                top: 325px;
+                left: 100px;
+                line-height: 100px;
+                font-size: 80px;
+                text-align: center;
+                font-weight:lighter;
+                background-image: url(texture.png);
+                background-repeat: no-repeat;
+                background-size: 500px;
+                color: transparent;
+                -webkit-background-clip: text; 
+                font-family: 'Pirata One', cursive;
+                filter: drop-shadow(0px 5px 5px #000000);
+            }
+            
+        </style>
+    </head>  
+    <body onload="startTime();blink();" style="text-align: center;">
+        <div class="box">
+            <div class="hour"></div>
+            <div class="colon" id="blink">:</div>
+            <div class="min"></div>
+            <div class="day"></div>
+        </div>
+
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+        <script type="text/javascript">
+            function startTime(){
+                var today = new Date();
+                var yy = today.getFullYear(),
+                    mon = today.getMonth()+1,
+                    dd = today.getDate(),
+                    hh = today.getHours(),
+                    mm = today.getMinutes(),
+                    M=' ';
+
+                dd = checkTime(dd);
+                hh = checkTime(hh);
+                mm = checkTime(mm);
+                
+                switch(mon){
+                    case 1:
+                        M='JAN';
+                        break;
+                    case 2:
+                        M='FEB';
+                        break;
+                    case 3:
+                        M='MAR';
+                        break;
+                    case 4:
+                        M='APR';
+                        break;
+                    case 5:
+                        M='MAY';
+                        break;
+                    case 6:
+                        M='JUN';
+                        break;
+                    case 7:
+                        M='JUL';
+                        break;
+                    case 8:
+                        M='AUG';
+                        break;
+                    case 9:
+                        M='SEP';
+                        break;
+                    case 10:
+                        M='OCT';
+                        break;
+                    case 11:
+                        M='NOV';
+                        break;
+                    case 12:
+                        M='DEC';
+                        break;
+                }
+                
+                
+                $('.hour').html(hh);
+                $('.min').html(mm);
+                $('.day').html(M + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + dd + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + yy);
+                var timeoutId = setTimeout(startTime, 1000);
+            }
+
+            function checkTime(i){
+                if(i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+            function blink() {
+                var b = document.getElementById('blink');
+                setInterval(function() {
+                    b.style.display = (b.style.display == 'none' ? '' : 'none');
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>

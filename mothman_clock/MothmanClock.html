@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>摩斯曼時鐘</title>
+        <meta charset="utf-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+        </style>
+        <style>
+            body{
+                background-color: transparent;
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+
+        <style>
+            .clockframe{
+                position: absolute;
+                width: 700px;
+                height: 500px;
+                background: url(bg.png)no-repeat;
+                font-size: 100px;
+                text-align: center;
+                font-weight:lighter;
+                font-family: 'Courgette', cursive;
+                /* filter: brightness(100); */
+            }
+
+            .date{
+                position: absolute;
+                top: 35%;
+                left: 70px;
+                width: 80%;
+                height: 130px;
+                color: #d1a74d;
+            }
+
+            .time{
+                position: absolute;
+                top: 65%;
+                left: 70px;
+                width: 80%;
+                height: 130px;
+                color: #d1a74d;
+                display: flex;
+                justify-content: center;
+            }
+
+        </style>
+    </head>  
+    <body onload="startTime();blink();" style="text-align: center;">
+        <div class="clockframe">
+            <div class="date" id="day"></div>
+            <div class="time">
+                <div class="hour" id="HH"></div>
+                <div class="blink" id="blink">:</div>
+                <div class="min" id="MM"></div>
+                <div class="daytime" id="daytime"></div>
+            </div>
+        </div>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+        <script type="text/javascript">
+            function startTime(){
+                var today = new Date();
+                var yy = today.getFullYear(),
+                    mon = today.getMonth()+1,
+                    dd = today.getDate(),
+                    ww = today.getDay(),
+                    hh = today.getHours(),
+                    mm = today.getMinutes(),
+                    daytime = '',
+                    M = '';
+
+                //12小時制
+                if(hh>=12){
+                    hh-=12;
+                    daytime =  'PM';
+                }else{
+                    daytime =  'AM';
+                }
+                if(hh==0){
+                    hh+=12;
+                }
+
+                dd = checkTime(dd);
+                hh = checkTime(hh);
+                mm = checkTime(mm);
+
+                switch(mon){
+                    case 1:
+                        M='JAN';
+                        break;
+                    case 2:
+                        M='FEB';
+                        break;
+                    case 3:
+                        M='MAR';
+                        break;
+                    case 4:
+                        M='APR';
+                        break;
+                    case 5:
+                        M='MAY';
+                        break;
+                    case 6:
+                        M='JUN';
+                        break;
+                    case 7:
+                        M='JUL';
+                        break;
+                    case 8:
+                        M='AUG';
+                        break;
+                    case 9:
+                        M='SEP';
+                        break;
+                    case 10:
+                        M='OCT';
+                        break;
+                    case 11:
+                        M='NOV';
+                        break;
+                    case 12:
+                        M='DEC';
+                        break;
+                }
+                
+                $('#HH').html(hh);
+                $('#MM').html(mm);
+                $('#daytime').html("&nbsp;" + daytime);
+                $('#day').html( M + "&nbsp;" + dd + "&nbsp;" + yy);
+                var timeoutId = setTimeout(startTime, 1000);
+            }
+
+            function checkTime(i){
+                if(i < 10) {
+                    i = "0" + i;
+                }
+                return i;
+            }
+            function blink() {
+                var b = document.getElementById('blink');
+                setInterval(function() {
+                    b.style.color = (b.style.color == 'transparent' ? '' : 'transparent');
+                }, 1000);
+            }
+  
+        </script>
+    </body>
+</html>
