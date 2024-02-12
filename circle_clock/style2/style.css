@@ -1,0 +1,68 @@
+.clock2{
+    position: absolute;
+    left: 420px;
+    width: 400px;
+    height: 400px;
+    background: url(BG.png)no-repeat center center;
+    background-size: contain;
+
+    .hr{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(hr.png)no-repeat center center;
+    }
+    
+    .min{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(min.png)no-repeat center center;
+    }
+    
+    .sec{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(sec.png)no-repeat center center;
+    }
+    
+    .pendulum{
+        position: absolute;
+        top: 212px;
+        width: 400px;
+        height: 300px;
+        transform-origin: 200px 0;
+        z-index: -1;
+        animation: ball 2s infinite ease-in-out;
+
+        .line{
+            position: absolute;
+            left: 50%;
+            translate: -50%;
+            width: 5px;
+            height: 100%;
+            background-color: #F7E288;
+        }
+
+        .ball{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            translate: -50% -100%;
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            background-color: #F7E288;
+        }
+    }
+}
+
+@keyframes ball{
+    0%,100%{
+        rotate: -20deg;
+    }
+    50%{
+        rotate: 20deg;
+    }
+}
