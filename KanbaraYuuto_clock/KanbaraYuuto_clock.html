@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>神原悠人時鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="hour" id="HH"></div>
+        <div class="blink1" id="blink1"></div>
+        <div class="blink2" id="blink2"></div>
+        <div class="minute" id="MM"></div>
+        <div class="date"></div>
+        <div class="mon"></div>
+        <div class="day"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes();
+
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            mon = checkTime(mon);
+
+            switch (ww) {
+                case 1:
+                    W = 'Mon';
+                    break;
+                case 2:
+                    W = 'Tue';
+                    break;
+                case 3:
+                    W = 'Wed';
+                    break;
+                case 4:
+                    W = 'Thu';
+                    break;
+                case 5:
+                    W = 'Fri';
+                    break;
+                case 6:
+                    W = 'Sat';
+                    break;
+                case 0:
+                    W = 'Sun';
+                    break;
+            }
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('.date').html(dd);
+            $('.mon').html(mon);
+            $('.day').html(W);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b1 = document.getElementById('blink1'),b2 = document.getElementById('blink2');
+            setInterval(function () {
+                b1.style.display = (b1.style.display == 'none' ? '' : 'none');
+                b2.style.display = (b2.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
