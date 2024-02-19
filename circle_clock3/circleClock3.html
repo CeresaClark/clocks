@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>圓形時鐘3</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>  
+    <body onload="startTime();">
+        <div class="clock">
+            <div class="hr"></div>
+            <div class="min"></div>
+            <div class="center"></div>
+            <div class="ball1"></div>
+            <div class="ball2"></div>
+        </div>
+
+
+
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+        <script type="text/javascript">
+            function startTime(){
+                var today = new Date();
+                var hh = today.getHours(),
+                    mm = today.getMinutes(),
+                    ss = today.getSeconds();
+
+                $('.hr').css({transform: 'rotate(' +  (30 * hh + 0.5 * mm - 360) + 'deg)'},100);
+                $('.min').css({transform: 'rotate(' +  (mm * 6 + ss * 0.1) + 'deg)'},100);
+                // $('.ball1').css({transform: 'rotate(' + ss*6 + 'deg)'},100);
+
+                var timeoutId = setTimeout(startTime, 1000);
+            }
+
+
+        </script>
+    </body>
+</html>
