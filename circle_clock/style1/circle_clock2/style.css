@@ -1,0 +1,28 @@
+.clock{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: url(BG.png)no-repeat center center;
+    background-size: contain;
+}
+
+.hr{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: url(hr.png)no-repeat center center;
+}
+
+.min{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: url(min.png)no-repeat center center;
+}
+
+.sec{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: url(sec.png)no-repeat center center;
+}
