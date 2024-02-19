@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>圓形時鐘1</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body{
+                background-color: transparent;
+            }
+        </style>
+    </head>  
+    <body onload="startTime();">
+        <div class="clock1">
+            <div class="hr"></div>
+            <div class="min"></div>
+            <div class="sec"></div>
+            <div class="center"></div>
+            <div class="pendulum">
+                <div class="line"></div>
+                <div class="ball"></div>
+            </div>
+        </div>
+
+
+
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+        <script type="text/javascript">
+            function startTime(){
+                var today = new Date();
+                var yy = today.getFullYear(),
+                    mon = today.getMonth()+1,
+                    dd = today.getDate(),
+                    ww = today.getDay(),
+                    hh = today.getHours(),
+                    mm = today.getMinutes(),
+                    ss = today.getSeconds();
+
+                $('.hr').css({transform: 'rotate(' +  (30 * hh + 0.5 * mm - 360) + 'deg)'},100);
+                $('.min').css({transform: 'rotate(' +  (mm * 6 + ss * 0.1) + 'deg)'},100);
+                $('.sec').css({transform: 'rotate(' + ss*6 + 'deg)'},100);
+
+                var timeoutId = setTimeout(startTime, 1000);
+            }
+
+
+        </script>
+    </body>
+</html>
