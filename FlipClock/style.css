@@ -1,0 +1,161 @@
+.clock {
+    position: absolute;
+    width: 600px;
+    height: 261px;
+    background: url(clock-Component/bg.png)no-repeat center;
+    background-size: contain;
+}
+
+.clip {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    transform: rotateX(0deg);
+    transform-origin: 0 130.5px;
+    transform-style: preserve-3d;
+    z-index: 0;
+    display: none;
+}
+
+.clip div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: visible;
+}
+
+.clip div:nth-child(1) {
+    transform: translateZ(0.5px);
+}
+
+.clip div:nth-child(2) {
+    transform: rotateX(180deg) translateZ(0.5px);
+}
+
+.front0U {
+    background: url(clock-Component/0t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back1D {
+    background: url(clock-Component/1b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front1U {
+    background: url(clock-Component/1t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back2D {
+    background: url(clock-Component/2b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front2U {
+    background: url(clock-Component/2t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back3D {
+    background: url(clock-Component/3b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front3U {
+    background: url(clock-Component/3t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back4D {
+    background: url(clock-Component/4b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front4U {
+    background: url(clock-Component/4t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back5D {
+    background: url(clock-Component/5b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front5U {
+    background: url(clock-Component/5t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back6D {
+    background: url(clock-Component/6b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front6U {
+    background: url(clock-Component/6t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back7D {
+    background: url(clock-Component/7b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front7U {
+    background: url(clock-Component/7t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back8D {
+    background: url(clock-Component/8b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front8U {
+    background: url(clock-Component/8t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back9D {
+    background: url(clock-Component/9b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.front9U {
+    background: url(clock-Component/9t.png)no-repeat center bottom;
+    background-size: contain;
+}
+
+.back0D {
+    background: url(clock-Component/0b.png)no-repeat center top;
+    background-size: contain;
+}
+
+.h1 {
+    position: absolute;
+    left: 0%;
+    width: 127px;
+    height: 261px;
+}
+
+.h2 {
+    position: absolute;
+    left: 21.3%;
+    width: 127px;
+    height: 261px;
+}
+
+.m1 {
+    position: absolute;
+    right: 21.3%;
+    width: 127px;
+    height: 261px;
+}
+
+.m2 {
+    position: absolute;
+    right: 0%;
+    width: 127px;
+    height: 261px;
+}
