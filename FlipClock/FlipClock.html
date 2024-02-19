@@ -1,0 +1,737 @@
+<html>
+
+<head>
+    <title>翻頁鐘</title>
+    <meta charset="utf-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+    </style>
+    <style>
+        .clock {
+            position: absolute;
+            width: 600px;
+            height: 261px;
+            background: url(clock-Component/bg.png)no-repeat center;
+            background-size: contain;
+
+            .h1,.h2,.m1,.m2 {
+                .clip {
+                    position: absolute;
+                    width: 100%;
+                    height: 50%;
+                    transform: rotateX(0deg);
+                    transform-origin: 0 130.5px;
+                    transform-style: preserve-3d;
+                    z-index: 0;
+                    display: none;
+                }
+
+                .clip div {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: visible;
+                }
+
+                .clip div:nth-child(1) {
+                    transform: translateZ(0.5px);
+                }
+
+                .clip div:nth-child(2) {
+                    transform: rotateX(180deg) translateZ(0.5px);
+                }
+
+                .front0U {
+                    background: url(clock-Component/0t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back1D {
+                    background: url(clock-Component/1b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front1U {
+                    background: url(clock-Component/1t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back2D {
+                    background: url(clock-Component/2b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front2U {
+                    background: url(clock-Component/2t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back3D {
+                    background: url(clock-Component/3b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front3U {
+                    background: url(clock-Component/3t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back4D {
+                    background: url(clock-Component/4b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front4U {
+                    background: url(clock-Component/4t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back5D {
+                    background: url(clock-Component/5b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front5U {
+                    background: url(clock-Component/5t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back6D {
+                    background: url(clock-Component/6b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front6U {
+                    background: url(clock-Component/6t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back7D {
+                    background: url(clock-Component/7b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front7U {
+                    background: url(clock-Component/7t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back8D {
+                    background: url(clock-Component/8b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front8U {
+                    background: url(clock-Component/8t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back9D {
+                    background: url(clock-Component/9b.png)no-repeat center top;
+                    background-size: contain;
+                }
+
+                .front9U {
+                    background: url(clock-Component/9t.png)no-repeat center bottom;
+                    background-size: contain;
+                }
+
+                .back0D {
+                    background: url(clock-Component/0b.png)no-repeat center top;
+                    background-size: contain;
+                }
+            }
+
+            .h1 {
+                position: absolute;
+                left: 0%;
+                width: 127px;
+                height: 261px;
+            }
+
+            .h2 {
+                position: absolute;
+                left: 21.3%;
+                width: 127px;
+                height: 261px;
+            }
+
+            .m1 {
+                position: absolute;
+                right: 21.3%;
+                width: 127px;
+                height: 261px;
+            }
+
+            .m2 {
+                position: absolute;
+                right: 0%;
+                width: 127px;
+                height: 261px;
+            }
+        }
+    </style>
+</head>
+
+<body onload="startTime();">
+
+    <div class="clock">
+        <div class="h1">
+            <div class="clip clip9U0D">
+                <div class="front9U"></div>
+                <div class="back0D"></div>
+            </div>
+            <div class="clip clip0U1D">
+                <div class="front0U"></div>
+                <div class="back1D"></div>
+            </div>
+            <div class="clip clip1U2D">
+                <div class="front1U"></div>
+                <div class="back2D"></div>
+            </div>
+            <div class="clip clip2U3D">
+                <div class="front2U"></div>
+                <div class="back3D"></div>
+            </div>
+            <div class="clip clip3U4D">
+                <div class="front3U"></div>
+                <div class="back4D"></div>
+            </div>
+            <div class="clip clip4U5D">
+                <div class="front4U"></div>
+                <div class="back5D"></div>
+            </div>
+            <div class="clip clip5U6D">
+                <div class="front5U"></div>
+                <div class="back6D"></div>
+            </div>
+            <div class="clip clip6U7D">
+                <div class="front6U"></div>
+                <div class="back7D"></div>
+            </div>
+            <div class="clip clip7U8D">
+                <div class="front7U"></div>
+                <div class="back8D"></div>
+            </div>
+            <div class="clip clip8U9D">
+                <div class="front8U"></div>
+                <div class="back9D"></div>
+            </div>
+        </div>
+        <div class="h2">
+            <div class="clip clip9U0D">
+                <div class="front9U"></div>
+                <div class="back0D"></div>
+            </div>
+            <div class="clip clip0U1D">
+                <div class="front0U"></div>
+                <div class="back1D"></div>
+            </div>
+            <div class="clip clip1U2D">
+                <div class="front1U"></div>
+                <div class="back2D"></div>
+            </div>
+            <div class="clip clip2U3D">
+                <div class="front2U"></div>
+                <div class="back3D"></div>
+            </div>
+            <div class="clip clip3U4D">
+                <div class="front3U"></div>
+                <div class="back4D"></div>
+            </div>
+            <div class="clip clip4U5D">
+                <div class="front4U"></div>
+                <div class="back5D"></div>
+            </div>
+            <div class="clip clip5U6D">
+                <div class="front5U"></div>
+                <div class="back6D"></div>
+            </div>
+            <div class="clip clip6U7D">
+                <div class="front6U"></div>
+                <div class="back7D"></div>
+            </div>
+            <div class="clip clip7U8D">
+                <div class="front7U"></div>
+                <div class="back8D"></div>
+            </div>
+            <div class="clip clip8U9D">
+                <div class="front8U"></div>
+                <div class="back9D"></div>
+            </div>
+        </div>
+        <div class="m1">
+            <div class="clip clip9U0D">
+                <div class="front9U"></div>
+                <div class="back0D"></div>
+            </div>
+            <div class="clip clip0U1D">
+                <div class="front0U"></div>
+                <div class="back1D"></div>
+            </div>
+            <div class="clip clip1U2D">
+                <div class="front1U"></div>
+                <div class="back2D"></div>
+            </div>
+            <div class="clip clip2U3D">
+                <div class="front2U"></div>
+                <div class="back3D"></div>
+            </div>
+            <div class="clip clip3U4D">
+                <div class="front3U"></div>
+                <div class="back4D"></div>
+            </div>
+            <div class="clip clip4U5D">
+                <div class="front4U"></div>
+                <div class="back5D"></div>
+            </div>
+            <div class="clip clip5U6D">
+                <div class="front5U"></div>
+                <div class="back6D"></div>
+            </div>
+            <div class="clip clip6U7D">
+                <div class="front6U"></div>
+                <div class="back7D"></div>
+            </div>
+            <div class="clip clip7U8D">
+                <div class="front7U"></div>
+                <div class="back8D"></div>
+            </div>
+            <div class="clip clip8U9D">
+                <div class="front8U"></div>
+                <div class="back9D"></div>
+            </div>
+        </div>
+        <div class="m2">
+            <div class="clip clip9U0D">
+                <div class="front9U"></div>
+                <div class="back0D"></div>
+            </div>
+            <div class="clip clip0U1D">
+                <div class="front0U"></div>
+                <div class="back1D"></div>
+            </div>
+            <div class="clip clip1U2D">
+                <div class="front1U"></div>
+                <div class="back2D"></div>
+            </div>
+            <div class="clip clip2U3D">
+                <div class="front2U"></div>
+                <div class="back3D"></div>
+            </div>
+            <div class="clip clip3U4D">
+                <div class="front3U"></div>
+                <div class="back4D"></div>
+            </div>
+            <div class="clip clip4U5D">
+                <div class="front4U"></div>
+                <div class="back5D"></div>
+            </div>
+            <div class="clip clip5U6D">
+                <div class="front5U"></div>
+                <div class="back6D"></div>
+            </div>
+            <div class="clip clip6U7D">
+                <div class="front6U"></div>
+                <div class="back7D"></div>
+            </div>
+            <div class="clip clip7U8D">
+                <div class="front7U"></div>
+                <div class="back8D"></div>
+            </div>
+            <div class="clip clip8U9D">
+                <div class="front8U"></div>
+                <div class="back9D"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.1/velocity.min.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                hh = today.getHours(),
+                mm = today.getMinutes(),
+                ss = today.getSeconds(),
+                M = ' ';
+
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+            switch (mon) {
+                case 1:
+                    M = 'JAN';
+                    break;
+                case 2:
+                    M = 'FEB';
+                    break;
+                case 3:
+                    M = 'MAR';
+                    break;
+                case 4:
+                    M = 'APR';
+                    break;
+                case 5:
+                    M = 'MAY';
+                    break;
+                case 6:
+                    M = 'JUN';
+                    break;
+                case 7:
+                    M = 'JUL';
+                    break;
+                case 8:
+                    M = 'AUG';
+                    break;
+                case 9:
+                    M = 'SEP';
+                    break;
+                case 10:
+                    M = 'OCT';
+                    break;
+                case 11:
+                    M = 'NOV';
+                    break;
+                case 12:
+                    M = 'DEC';
+                    break;
+            }
+
+            var h1 = hh / 10,
+                h2 = hh % 10,
+                m1 = mm / 10,
+                m2 = mm % 10;
+
+            rotateh1(Math.floor(h1))
+            rotateh2(Math.floor(h2))
+            rotatem1(Math.floor(m1))
+            rotatem2(Math.floor(m2))
+
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('#day').html(M + "&nbsp;&nbsp;&nbsp;" + dd + "&nbsp;&nbsp;&nbsp;" + yy);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function rotateh1(i) {
+            switch (i) {
+                case 1:
+                    $(".h1 .clip:not(.h1 .clip0U1D,.h1 .clip1U2D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 2:
+                    $(".h1 .clip:not(.h1 .clip1U2D,.h1 .clip2U3D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 3:
+                    $(".h1 .clip:not(.h1 .clip2U3D,.h1 .clip3U4D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 4:
+                    $(".h1 .clip:not(.h1 .clip3U4D,.h1 .clip4U5D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 5:
+                    $(".h1 .clip:not(.h1 .clip4U5D,.h1 .clip5U6D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 6:
+                    $(".h1 .clip:not(.h1 .clip5U6D,.h1 .clip6U7D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 7:
+                    $(".h1 .clip:not(.h1 .clip6U7D,.h1 .clip7U8D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 8:
+                    $(".h1 .clip:not(.h1 .clip7U8D,.h1 .clip8U9D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 9:
+                    $(".h1 .clip:not(.h1 .clip8U9D,.h1 .clip9U0D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 0:
+                    $(".h1 .clip:not(.h1 .clip9U0D,.h1 .clip0U1D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+            }
+            $(".h1").find(".clip").eq(i).show().css({
+                zIndex: '1'
+            })
+            if (i == 9) {
+                $(".h1").find(".clip").eq(0).show()
+            } else {
+                $(".h1").find(".clip").eq(i + 1).show()
+            }
+            $(".h1").find(".clip").eq(i).velocity({
+                rotateX: '-180deg'
+            }, { delay: 0, duration: 500 })
+
+        }
+        function rotateh2(i) {
+            switch (i) {
+                case 1:
+                    $(".h2 .clip:not(.h2 .clip0U1D,.h2 .clip1U2D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 2:
+                    $(".h2 .clip:not(.h2 .clip1U2D,.h2 .clip2U3D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 3:
+                    $(".h2 .clip:not(.h2 .clip2U3D,.h2 .clip3U4D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 4:
+                    $(".h2 .clip:not(.h2 .clip3U4D,.h2 .clip4U5D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 5:
+                    $(".h2 .clip:not(.h2 .clip4U5D,.h2 .clip5U6D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 6:
+                    $(".h2 .clip:not(.h2 .clip5U6D,.h2 .clip6U7D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 7:
+                    $(".h2 .clip:not(.h2 .clip6U7D,.h2 .clip7U8D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 8:
+                    $(".h2 .clip:not(.h2 .clip7U8D,.h2 .clip8U9D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 9:
+                    $(".h2 .clip:not(.h2 .clip8U9D,.h2 .clip9U0D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 0:
+                    $(".h2 .clip:not(.h2 .clip9U0D,.h2 .clip0U1D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+            }
+            $(".h2").find(".clip").eq(i).show().css({
+                zIndex: '1'
+            })
+            if (i == 9) {
+                $(".h2").find(".clip").eq(0).show()
+            } else {
+                $(".h2").find(".clip").eq(i + 1).show()
+            }
+            $(".h2").find(".clip").eq(i).velocity({
+                rotateX: '-180deg'
+            }, { delay: 0, duration: 500 })
+
+        }
+
+        function rotatem1(i) {
+            switch (i) {
+                case 1:
+                    $(".m1 .clip:not(.m1 .clip0U1D,.m1 .clip1U2D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 2:
+                    $(".m1 .clip:not(.m1 .clip1U2D,.m1 .clip2U3D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 3:
+                    $(".m1 .clip:not(.m1 .clip2U3D,.m1 .clip3U4D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 4:
+                    $(".m1 .clip:not(.m1 .clip3U4D,.m1 .clip4U5D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 5:
+                    $(".m1 .clip:not(.m1 .clip4U5D,.m1 .clip5U6D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 6:
+                    $(".m1 .clip:not(.m1 .clip5U6D,.m1 .clip6U7D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 7:
+                    $(".m1 .clip:not(.m1 .clip6U7D,.m1 .clip7U8D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 8:
+                    $(".m1 .clip:not(.m1 .clip7U8D,.m1 .clip8U9D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 9:
+                    $(".m1 .clip:not(.m1 .clip8U9D,.m1 .clip9U0D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 0:
+                    $(".m1 .clip:not(.m1 .clip9U0D,.m1 .clip0U1D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+            }
+            $(".m1").find(".clip").eq(i).show().css({
+                zIndex: '1'
+            })
+            if (i == 9) {
+                $(".m1").find(".clip").eq(0).show()
+            } else {
+                $(".m1").find(".clip").eq(i + 1).show()
+            }
+            $(".m1").find(".clip").eq(i).velocity({
+                rotateX: '-180deg'
+            }, { delay: 0, duration: 500 })
+
+        }
+        function rotatem2(i) {
+            switch (i) {
+                case 1:
+                    $(".m2 .clip:not(.m2 .clip0U1D,.m2 .clip1U2D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 2:
+                    $(".m2 .clip:not(.m2 .clip1U2D,.m2 .clip2U3D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 3:
+                    $(".m2 .clip:not(.m2 .clip2U3D,.m2 .clip3U4D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 4:
+                    $(".m2 .clip:not(.m2 .clip3U4D,.m2 .clip4U5D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 5:
+                    $(".m2 .clip:not(.m2 .clip4U5D,.m2 .clip5U6D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 6:
+                    $(".m2 .clip:not(.m2 .clip5U6D,.m2 .clip6U7D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 7:
+                    $(".m2 .clip:not(.m2 .clip6U7D,.m2 .clip7U8D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 8:
+                    $(".m2 .clip:not(.m2 .clip7U8D,.m2 .clip8U9D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 9:
+                    $(".m2 .clip:not(.m2 .clip8U9D,.m2 .clip9U0D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+                case 0:
+                    $(".m2 .clip:not(.m2 .clip9U0D,.m2 .clip0U1D)").delay(400).fadeOut(20).velocity({
+                        rotateX: '0deg',
+                        zIndex: '0'
+                    });
+                    break;
+            }
+            $(".m2").find(".clip").eq(i).show().css({
+                zIndex: '1'
+            })
+            if (i == 9) {
+                $(".m2").find(".clip").eq(0).show()
+            } else {
+                $(".m2").find(".clip").eq(i + 1).show()
+            }
+            $(".m2").find(".clip").eq(i).velocity({
+                rotateX: '-180deg'
+            }, { delay: 0, duration: 500 })
+
+        }
+    </script>
+</body>
+
+</html>
