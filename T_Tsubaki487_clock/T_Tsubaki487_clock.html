@@ -1,0 +1,235 @@
+<html>
+
+<head>
+    <title>兎澤つばき時鐘</title>
+    <meta charset="utf-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap');
+    </style>
+    <style>
+        #HH,
+        #MM,
+        .date,
+        .mon {
+            color: #e95376;
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-style: normal;
+            text-align: center;
+        }
+
+        .box {
+            width: 700px;
+            height: 500px;
+            background: none;
+            position: relative;
+        }
+
+        .hour {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            width: 250px;
+            height: 200px;
+            font-size: 230px;
+            line-height: 140px;
+        }
+
+        .blink1,
+        .blink2 {
+            position: absolute;
+            top: 65px;
+            left: 320px;
+            width: 70px;
+            height: 80px;
+            font-size: 100px;
+            animation: blink 2s infinite;
+
+        }
+
+        .blink2 {
+            top: 135px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            49% {
+                background: url(img/rabbit.png) no-repeat;
+                background-position: center;
+                background-size: 60%;
+            }
+
+            50%,
+            100% {
+                background: url(img/heart.png) no-repeat;
+                background-position: 17px 30px;
+                background-size: 50%;
+            }
+        }
+
+        .minute {
+            position: absolute;
+            top: 40px;
+            right: 60px;
+            width: 250px;
+            height: 200px;
+            font-size: 230px;
+            line-height: 140px;
+        }
+
+        .line {
+            position: absolute;
+            width: 613px;
+            height: 44px;
+            top: 260px;
+            background: url(img/flower.png)no-repeat;
+            left: 43.5px;
+        }
+
+        .date {
+            position: absolute;
+            top: 330px;
+            left: 30px;
+            width: 200px;
+            height: 120px;
+            font-size: 170px;
+            line-height: 80px;
+        }
+
+        .mon {
+            position: absolute;
+            top: 330px;
+            left: 220px;
+            width: 200px;
+            height: 120px;
+            font-size: 110px;
+            font-weight: bold;
+            line-height: 120px;
+        }
+
+        .day {
+            position: absolute;
+            top: 330px;
+            right: 30px;
+            width: 200px;
+            height: 120px;
+            color: #e95376;
+            font-family: "Noto Sans JP", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+            font-size: 100px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body onload="startTime();" style="text-align: center;">
+    <div class="box">
+        <div class="hour" id="HH"></div>
+        <div class="blink1"></div>
+        <div class="blink2"></div>
+        <div class="minute" id="MM"></div>
+        <div class="line"></div>
+        <div class="date"></div>
+        <div class="mon"></div>
+        <div class="day"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes(),
+                M = ' ';
+
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+            switch (mon) {
+                case 1:
+                    M = 'JAN';
+                    break;
+                case 2:
+                    M = 'FEB';
+                    break;
+                case 3:
+                    M = 'MAR';
+                    break;
+                case 4:
+                    M = 'APR';
+                    break;
+                case 5:
+                    M = 'MAY';
+                    break;
+                case 6:
+                    M = 'JUN';
+                    break;
+                case 7:
+                    M = 'JUL';
+                    break;
+                case 8:
+                    M = 'AUG';
+                    break;
+                case 9:
+                    M = 'SEP';
+                    break;
+                case 10:
+                    M = 'OCT';
+                    break;
+                case 11:
+                    M = 'NOV';
+                    break;
+                case 12:
+                    M = 'DEC';
+                    break;
+            }
+
+            switch (ww) {
+                case 1:
+                    W = '(月)';
+                    break;
+                case 2:
+                    W = '(火)';
+                    break;
+                case 3:
+                    W = '(水)';
+                    break;
+                case 4:
+                    W = '(木)';
+                    break;
+                case 5:
+                    W = '(金)';
+                    break;
+                case 6:
+                    W = '(土)';
+                    break;
+                case 0:
+                    W = '(日)';
+                    break;
+            }
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('.date').html(dd);
+            $('.mon').html(M);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+</body>
+
+</html>
