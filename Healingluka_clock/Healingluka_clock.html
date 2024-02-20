@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>希靈時鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="clockframe">
+        <div class="hour" id="HH"></div>
+        <div class="blink" id="blink">:</div>
+        <div class="min" id="MM"></div>
+        <div class="month" id="mon"></div>
+        <div class="line">/</div>
+        <div class="day" id="day"></div>
+        <div class="week" id="week"></div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes(),
+                ss = today.getSeconds(),
+                W = '';
+
+
+
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            ss = checkTime(ss);
+
+            switch (ww) {
+                case 1:
+                    W = 'Mon';
+                    break;
+                case 2:
+                    W = 'Tue';
+                    break;
+                case 3:
+                    W = 'Wed';
+                    break;
+                case 4:
+                    W = 'Thu';
+                    break;
+                case 5:
+                    W = 'Fri';
+                    break;
+                case 6:
+                    W = 'Sat';
+                    break;
+                case 0:
+                    W = 'Sun';
+                    break;
+            }
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('#mon').html(mon);
+            $('#day').html(dd);
+            $('#week').html(W);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b = document.getElementById('blink'), b2 = document.getElementById('blink2');
+            setInterval(function () {
+                b.style.color = (b.style.color == 'transparent' ? '' : 'transparent');
+                b2.style.color = (b2.style.color == 'transparent' ? '' : 'transparent');
+            }, 1000);
+        }
+
+    </script>
+</body>
+
+</html>

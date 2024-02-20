@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'ComputerNumber-Regular';
+    src: url('ComputerNumber-Regular.ttf') format("truetype");
+}
+
+body{
+    background-color: #5e5e5e;
+}
+
+#HH,
+#MM {
+    text-align: center;
+    color: #ffffff;
+    font-family: 'ComputerNumber-Regular';
+    filter: drop-shadow(0 0 5px #ffffff);
+    user-select: none;
+}
+
+.box {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+    background: url(img/bg.png)no-repeat center center;
+    cursor: pointer;
+}
+
+.inbox2{
+    position: absolute;
+    top: 175px;
+    left: 50px;
+    width: 80%;
+    height: 150px;
+}
+
+.num{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/num.png)no-repeat center center;
+    filter: drop-shadow(0 10px 50px rgb(0, 0, 0));
+}
+
+.hr{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/hr.png)no-repeat center center;
+}
+
+.min{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/min.png)no-repeat center center;
+}
+
+.sec{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/sec.png)no-repeat center center;
+}
+
+.hour{
+    position: absolute;
+    top: 0px;
+    left: -20px;
+    width: 200px;
+    height: 150px;
+    font-size: 120px;
+    line-height: 150px;
+    letter-spacing: -30px;
+}
+
+.blink1,
+.blink2{
+    position: absolute;
+    top: 50px;
+    left: 190px;
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    filter: drop-shadow(0 0 5px #ffffff);
+}
+
+.blink2{
+    top: 90px;
+}
+
+.minute{
+    position: absolute;
+    top: 0px;
+    left: 180px;
+    width: 200px;
+    height: 150px;
+    font-size: 120px;
+    line-height: 150px;
+    letter-spacing: -30px;
+}

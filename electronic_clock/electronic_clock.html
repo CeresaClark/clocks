@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>大數字電子鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="blink00"></div>
+        <div class="hour0">00</div>
+        <div class="blink10"></div>
+        <div class="blink20"></div>
+        <div class="minute0">00</div>
+        <div class="hour" id="HH"></div>
+        <div class="blink1" id="blink1"></div>
+        <div class="blink2" id="blink2"></div>
+        <div class="minute" id="MM"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var hh = today.getHours(),
+                mm = today.getMinutes();
+
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b1 = document.getElementById('blink1'),b2 = document.getElementById('blink2');
+            setInterval(function () {
+                b1.style.display = (b1.style.display == 'none' ? '' : 'none');
+                b2.style.display = (b2.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

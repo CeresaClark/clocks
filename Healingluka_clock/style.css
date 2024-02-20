@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* body{
+    background-color: rgb(110, 110, 110);
+} */
+
+.clockframe{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: url(img/bg.png)no-repeat;
+    font-size: 100px;
+    color: #FFF89D;
+    font-weight:400;
+    font-family: 'Pacifico', cursive;
+}
+
+.hour{
+    position: absolute;
+    width: 100px;
+    top: 95px;
+    left: 170px;
+    text-align: right;
+    filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
+}
+
+.blink{
+    position: absolute;
+    width: 30px;
+    top: 95px;
+    left: 275px;
+    text-align: center;
+    filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
+}
+
+.min{
+    position: absolute;
+    width: 100px;
+    top: 95px;
+    left: 308px;
+    text-align: left;
+    filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
+}
+
+.month{
+    position: absolute;
+    width: 55px;
+    top: 213px;
+    left: 170px;
+    font-size: 55px;
+    text-align: right;
+    filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
+}
+
+.line{
+    position: absolute;
+    width: 30px;
+    top: 238px;
+    left: 220px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
+}
+
+.day{
+    position: absolute;
+    width: 55px;
+    top: 213px;
+    left: 243px;
+    font-size: 55px;
+    text-align: left;
+    filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
+}
+
+.week{
+    position: absolute;
+    width: 55px;
+    top: 213px;
+    left: 315px;
+    font-size: 55px;
+    text-align: left;
+    filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
+}

@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>指針電子鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="inbox1">
+            <div class="num"></div>
+            <div class="hr"></div>
+            <div class="min"></div>
+            <div class="sec"></div>
+        </div>
+        <div class="inbox2">
+            <div class="hour" id="HH"></div>
+            <div class="blink1" id="blink1"></div>
+            <div class="blink2" id="blink2"></div>
+            <div class="minute" id="MM"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var hh = today.getHours(),
+                mm = today.getMinutes(),
+                ss = today.getSeconds();
+
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+
+            $('.hr').css({ transform: 'rotate(' + (30 * hh + 0.5 * mm - 360) + 'deg)' }, 100);
+            $('.min').css({ transform: 'rotate(' + (mm * 6 + ss * 0.1) + 'deg)' }, 100);
+            $('.sec').css({ transform: 'rotate(' + ss * 6 + 'deg)' }, 100);
+
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b1 = document.getElementById('blink1'), b2 = document.getElementById('blink2');
+            setInterval(function () {
+                b1.style.display = (b1.style.display == 'none' ? '' : 'none');
+                b2.style.display = (b2.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+        
+        var c = 0;
+
+        $(".inbox2").hide();
+        $(".box").on("click",function(){
+            if(c == 0){
+                $(".inbox1").fadeOut(200);
+                $(".inbox2").fadeIn(200);
+                c = 1;
+            }else{
+                $(".inbox2").fadeOut(200);
+                $(".inbox1").fadeIn(200);
+                c = 0;
+            }
+            
+        })
+    </script>
+</body>
+
+</html>

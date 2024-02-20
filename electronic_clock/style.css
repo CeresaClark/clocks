@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'ComputerNumber-Regular';
+    src: url('ComputerNumber-Regular.ttf') format("truetype");
+}
+
+#HH,
+#MM {
+    text-align: right;
+    color: #ffffff;
+    font-family: 'ComputerNumber-Regular';
+    filter: drop-shadow(0 0 5px #ffffff);
+}
+
+.box {
+    width: 335px;
+    height: 150px;
+    background: none;
+    position: relative;
+    transform-origin:bottom;
+    transform:skewX(-10deg);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+
+.hour,
+.hour0 {
+    position: absolute;
+    top: 0px;
+    left: -80px;
+    width: 200px;
+    height: 150px;
+    font-size: 120px;
+    line-height: 150px;
+    letter-spacing: -50px;
+}
+
+.blink1,
+.blink2,
+.blink10,
+.blink20 {
+    position: absolute;
+    top: 50px;
+    left: 160px;
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.blink2,
+.blink20 {
+    top: 90px;
+}
+
+.minute,
+.minute0 {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    width: 200px;
+    height: 150px;
+    font-size: 120px;
+    line-height: 150px;
+    letter-spacing: -50px;
+}
+
+.hour0,
+.minute0 {
+    text-align: right;
+    color: #585858;
+    font-family: 'ComputerNumber-Regular';
+    -webkit-text-stroke: 1px #000000;
+}
+
+.blink10,
+.blink20 {
+    background-color: #585858;
+    -webkit-text-stroke: 1px #000000;
+}
+
+.blink00{
+    position: absolute;
+    top: 23px;
+    left: 130px;
+    width: 70px;
+    height: 70%;
+    background-color: #585858;
+}

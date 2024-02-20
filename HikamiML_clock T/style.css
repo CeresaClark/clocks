@@ -1,0 +1,52 @@
+.box{
+    position: relative;
+    width: 840px;
+    height: 430px;
+    background: url(img/bg.png)no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.clock{
+    position: absolute;
+    left: 205px;
+    width: 430px;
+    height: 430px;
+    background: url(img/clock.png)no-repeat center center;
+    background-size: contain;
+}
+
+.hr{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/hour.png)no-repeat center center;
+}
+
+.min{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/min.png)no-repeat center center;
+}
+
+.sec{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/sec.png)no-repeat center center;
+}
+
+.doorL{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/L.png)no-repeat center center;
+}
+
+.doorR{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(img/R.png)no-repeat center center;
+}
