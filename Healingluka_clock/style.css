@@ -75,10 +75,10 @@ body{
 
 .week{
     position: absolute;
-    width: 55px;
+    width: 105px;
     top: 213px;
-    left: 315px;
+    left: 298px;
     font-size: 55px;
-    text-align: left;
+    text-align: right;
     filter: drop-shadow(0 0 16px rgba(255, 250, 202, 0.5));
 }
