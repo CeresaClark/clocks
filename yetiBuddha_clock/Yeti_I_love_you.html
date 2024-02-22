@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title>耶緹我愛你❤</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="hour" id="HH"></div>
+        <div class="blink" id="blink"></div>
+        <div class="minute" id="MM"></div>
+        <div class="circle">
+            <div class="ball"></div>
+        </div>
+    </div>
+
+    <audio id="ohhhh" src="audio/a74390ae-6d68-48d1-ad36-f652a43b8694.mp3" type="audio/mp3"></audio>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        var audio = document.getElementById("ohhhh");
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes(),
+                ss = today.getSeconds();
+
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+            if (mm == 0) {
+                light();
+            }
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('.circle').css({ transform: 'rotate(' + (ss * 6) + 'deg)' }, 100);
+            $('.ball').css({ transform: 'rotate(' + (ss * (-6)) + 'deg)' }, 100);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function light() {
+            audio.play();
+            $(".box").css({
+                filter: 'drop-shadow(0 0 100px #ffea2f)brightness(1.5)'
+            })
+            setTimeout(function () {
+                $(".box").css({
+                    filter: 'none'
+                })
+            }, 2000)
+        }
+
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b = document.getElementById('blink');
+            setInterval(function () {
+                b.style.display = (b.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
