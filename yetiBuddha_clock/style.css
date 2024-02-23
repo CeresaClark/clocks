@@ -14,6 +14,7 @@
     height: 804px;
     position: relative;
     background: url(img/image4.png)no-repeat;
+    overflow: hidden;
 }
 
 .hour {
