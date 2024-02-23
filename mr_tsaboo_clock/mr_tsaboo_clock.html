@@ -1,0 +1,156 @@
+<html>
+
+<head>
+    <title>擦布微糖時鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="hour" id="HH"></div>
+        <div class="minute" id="MM"></div>
+        <div class="day"></div>
+        <div class="date"></div>
+        <div class="mon"></div>
+    </div>
+    <div class="box2">
+        <div class="hour" id="HH2"></div>
+        <div class="blink" id="blink"></div>
+        <div class="minute" id="MM2"></div>
+        <div class="line"></div>
+        <div class="pen"></div>
+        <div class="day"></div>
+        <div class="date"></div>
+        <div class="mon"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes(),
+                ss = today.getSeconds(),
+                M = ' ',
+                W = ' ';
+
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+            switch (mon) {
+                case 1:
+                    M = 'JAN';
+                    break;
+                case 2:
+                    M = 'FEB';
+                    break;
+                case 3:
+                    M = 'MAR';
+                    break;
+                case 4:
+                    M = 'APR';
+                    break;
+                case 5:
+                    M = 'MAY';
+                    break;
+                case 6:
+                    M = 'JUN';
+                    break;
+                case 7:
+                    M = 'JUL';
+                    break;
+                case 8:
+                    M = 'AUG';
+                    break;
+                case 9:
+                    M = 'SEP';
+                    break;
+                case 10:
+                    M = 'OCT';
+                    break;
+                case 11:
+                    M = 'NOV';
+                    break;
+                case 12:
+                    M = 'DEC';
+                    break;
+            }
+
+            switch (ww) {
+                case 1:
+                    W = 'MON.';
+                    break;
+                case 2:
+                    W = 'TUE.';
+                    break;
+                case 3:
+                    W = 'WED.';
+                    break;
+                case 4:
+                    W = 'THU.';
+                    break;
+                case 5:
+                    W = 'FRI.';
+                    break;
+                case 6:
+                    W = 'SAT.';
+                    break;
+                case 0:
+                    W = 'SUN.';
+                    break;
+            }
+
+
+            if (mm == 0 || ss == 0 ) {
+                name();
+            }
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('#HH2').html(hh);
+            $('#MM2').html(mm);
+            $('.day').html(W);
+            $('.date').html(dd);
+            $('.mon').html(M);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function blink() {
+            var b = document.getElementById('blink');
+            setInterval(function () {
+                b.style.display = (b.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+
+        
+        function name() {
+            $(".line").show()
+            $(".line").css({
+                background: 'url(img/line2.png)no-repeat'
+            })
+            
+            $(".line").delay(2000).fadeOut(1000)
+            // setTimeout(function () {
+            //     $(".line").css({
+            //         background: 'none'
+            //     })
+            // }, 5000)
+            
+        }
+    </script>
+</body>
+
+</html>
