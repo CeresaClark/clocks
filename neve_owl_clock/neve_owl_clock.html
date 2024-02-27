@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>涅薇·奧諾時鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="hour" id="HH"></div>
+        <div class="blink" id="blink">:</div>
+        <div class="minute" id="MM"></div>
+        <div class="sec" id="SS"></div>
+        <div class="date"></div>
+        <div class="am"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes(),
+                ss = today.getSeconds(),
+                day = " ";
+
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            ss = checkTime(ss);
+
+            if(hh >= 12){
+                day = "pm";
+            }else{
+                day = "am";
+            }
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('#SS').html(ss);
+            $('.date').html(yy+"."+mon+"."+dd);
+            $('.am').html(day);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function blink() {
+            var b = document.getElementById('blink');
+            setInterval(function () {
+                b.style.display = (b.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

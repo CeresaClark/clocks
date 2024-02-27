@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+body{
+    background-color: black;
+}
+
+#HH,
+#MM,
+#SS,
+.blink,
+.date,
+.mon {
+    color: #4198ff;
+    font-family: "Paytone One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.box {
+    position: relative;
+    width: 565px;
+    height: 382px;
+    background: url(img/bg.png);
+}
+
+.hour {
+    position: absolute;
+    top: 58px;
+    left: 40px;
+    width: 180px;
+    height: 150px;
+    font-size: 120px;
+    line-height: 150px;
+    text-align: right;
+}
+
+.blink{
+    position: absolute;
+    top: 50px;
+    left: 205px;
+    width: 70px;
+    height: 150px;
+    font-size: 120px;
+    text-align: center;
+}
+
+.minute {
+    position: absolute;
+    top: 58px;
+    left: 260px;
+    width: 180px;
+    height: 150px;
+    font-size: 120px;
+    line-height: 150px;
+    text-align: left;
+}
+
+.sec {
+    position: absolute;
+    top: 120px;
+    left: 390px;
+    width: 100px;
+    height: 70px;
+    font-size: 80px;
+    line-height: 70px;
+    text-align: left;
+}
+
+.date {
+    position: absolute;
+    top: 220px;
+    left: 0px;
+    width: 565px;
+    height: 70px;
+    font-size: 63px;
+    line-height: 70px;
+    text-align: center;
+}
