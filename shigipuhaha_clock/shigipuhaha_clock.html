@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>西奇時鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="BG">
+            <div class="cardL"></div>
+            <div class="cardM"></div>
+            <div class="cardR"></div>
+            <div class="star1"></div>
+            <div class="star2"></div>
+        </div>
+        <div class="hour1" id="HH"></div>
+        <div class="hour2" id="HH"></div>
+        <div class="blink1" id="blink1"></div>
+        <div class="blink2" id="blink2"></div>
+        <div class="minute1" id="MM"></div>
+        <div class="minute2" id="MM"></div>
+        <div class="date"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes();
+
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            mon = checkTime(mon);
+
+            switch (ww) {
+                case 1:
+                    W = '一';
+                    break;
+                case 2:
+                    W = '二';
+                    break;
+                case 3:
+                    W = '三';
+                    break;
+                case 4:
+                    W = '四';
+                    break;
+                case 5:
+                    W = '五';
+                    break;
+                case 6:
+                    W = '六';
+                    break;
+                case 0:
+                    W = '日';
+                    break;
+            }
+
+            $('.hour1').html(Math.floor(hh/10));
+            $('.hour2').html(Math.floor(hh%10));
+            $('.minute1').html(Math.floor(mm/10));
+            $('.minute2').html(Math.floor(mm%10));
+            $('.date').html(yy+"/"+mon+"/"+dd+"("+W+")");
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b1 = document.getElementById('blink1'),b2 = document.getElementById('blink2');
+            setInterval(function () {
+                b1.style.display = (b1.style.display == 'none' ? '' : 'none');
+                b2.style.display = (b2.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

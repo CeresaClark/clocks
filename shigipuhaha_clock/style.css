@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'UoqMunThenKhung';
+    src: url('UoqMunThenKhung-1.000.ttf') format("truetype");
+}
+
+#HH,
+#MM,
+.date,
+.mon {
+    color: #9C50A2;
+    font-family: 'UoqMunThenKhung';
+}
+
+.box {
+    width: 418px;
+    height: 353px;
+    position: relative;
+}
+
+.cardL{
+    position: absolute;
+    top: 10px;
+    width: 219px;
+    height: 299px;
+    background: url(img/cardL.png)no-repeat;
+    animation: cardmoveL 7s ease-in-out infinite;
+}
+
+.cardM{
+    position: absolute;
+    top: 53px;
+    left: 58px;
+    width: 250px;
+    height: 301px;
+    background: url(img/cardM.png)no-repeat;
+    animation: cardmoveM 5s ease-in-out infinite;
+}
+
+.cardR{
+    position: absolute;
+    top: 18px;
+    left: 168px;
+    width: 228px;
+    height: 292px;
+    background: url(img/cardR.png)no-repeat;
+    animation: cardmoveR 7s ease-in-out infinite;
+}
+
+.star1{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width: 53px;
+    height: 54px;
+    background: url(img/star1.png)no-repeat;
+    animation: starlight1 3s linear infinite;
+}
+
+.star2{
+    position: absolute;
+    top: 202px;
+    right: 0px;
+    width: 79px;
+    height: 79px;
+    background: url(img/star2.png)no-repeat;
+    animation: starlight2 3s linear infinite;
+}
+
+.hour1,.hour2,.minute1,.minute2 {
+    position: absolute;
+    text-align: center;
+    top: 142px;
+    left: 87px;
+    width: 53px;
+    height: 78px;
+    font-size: 60px;
+    line-height: 67px;
+    border-radius: 13px;
+    background-color: rgb(255, 255, 255);
+}
+
+.hour2{
+    left: 142px;
+}
+
+.minute1{
+    left: 230px;
+}
+
+.minute2{
+    left: 285px;
+}
+
+.blink1,
+.blink2 {
+    position: absolute;
+    top: 170px;
+    left: 207px;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 100%;
+}
+
+.blink2 {
+    top: 192px;
+}
+
+.date {
+    position: absolute;
+    top: 72px;
+    left: 93px;
+    width: 90px;
+    height: 80px;
+    font-size: 30px;
+    line-height: 80px;
+    color: #FFF;
+    letter-spacing: 1px;
+}
+
+@keyframes starlight1{
+    0%,100%{
+        opacity: 1;
+    }
+    30%,70%{
+        opacity: 0;
+    }
+}
+
+@keyframes starlight2{
+    0%,100%{
+        opacity: 0;
+    }
+    30%,70%{
+        opacity: 1;
+    }
+}
+
+@keyframes cardmoveL{
+    0%,100%{
+        top: 10px;
+    }
+    50%{
+        top: 30px;
+    }
+}
+
+@keyframes cardmoveM{
+    0%,100%{
+        top: 53px;
+    }
+    50%{
+        top: 33px;
+    }
+}
+
+@keyframes cardmoveR{
+    0%,100%{
+        top: 18px;
+    }
+    50%{
+        top: 38px;
+    }
+}
