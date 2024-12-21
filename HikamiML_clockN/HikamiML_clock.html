@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <title>冰上夢凌電子鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body onload="startTime();blink();">
+    <div class="box">
+        <div class="cloudL"></div>
+        <div class="cloudR"></div>
+        <div class="hr" id="HH"></div>
+        <div class="blink1" id="blink1"></div>
+        <div class="blink2" id="blink2"></div>
+        <div class="min" id="MM"></div>
+        <div class="sec" id="SS"></div>
+        <div class="info" id="info">JUN 02 水</div>
+    </div>
+
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes(),
+                ss = today.getSeconds(),
+                M = '', W = '';
+
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+
+            switch (mon) {
+                case 1:
+                    M = 'JAN';
+                    break;
+                case 2:
+                    M = 'FEB';
+                    break;
+                case 3:
+                    M = 'MAR';
+                    break;
+                case 4:
+                    M = 'APR';
+                    break;
+                case 5:
+                    M = 'MAY';
+                    break;
+                case 6:
+                    M = 'JUN';
+                    break;
+                case 7:
+                    M = 'JUL';
+                    break;
+                case 8:
+                    M = 'AUG';
+                    break;
+                case 9:
+                    M = 'SEP';
+                    break;
+                case 10:
+                    M = 'OCT';
+                    break;
+                case 11:
+                    M = 'NOV';
+                    break;
+                case 12:
+                    M = 'DEC';
+                    break;
+            }
+
+            switch (ww) {
+                case 1:
+                    W = '月';
+                    break;
+                case 2:
+                    W = '火';
+                    break;
+                case 3:
+                    W = '水';
+                    break;
+                case 4:
+                    W = '木';
+                    break;
+                case 5:
+                    W = '金';
+                    break;
+                case 6:
+                    W = '土';
+                    break;
+                case 0:
+                    W = '日';
+                    break;
+            }
+
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            $('#SS').html(ss);
+            $('#info').html(M + ' ' + dd + ' ' + W);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b1 = document.getElementById('blink1'), b2 = document.getElementById('blink2');
+            setInterval(function () {
+                b1.style.display = (b1.style.display == 'none' ? '' : 'none');
+                b2.style.display = (b2.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+
+
+    </script>
+</body>
+
+</html>
