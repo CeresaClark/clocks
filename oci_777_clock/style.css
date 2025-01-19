@@ -110,7 +110,9 @@ body {
     transform: translateY(-50%);
     height: 55px;
     text-align: left;
-    align-content: end;
     font-size: 20px;
     line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
