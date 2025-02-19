@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Ole&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hour,.blink,.minute,.day {
+    color: hsl(0, 0%, 100%);
+    font-family: "Ole", serif;
+    font-weight: 500;
+}
+
+.mon,.week{
+    color: hsl(0, 0%, 100%);
+    font-family: "Beau Rivage", serif;
+    font-weight: 400;
+}
+
+.box {
+    position: relative;
+    width: 370px;
+    height: 255px;
+}
+
+.tail{
+    position: absolute;
+    top: 115px;
+    right: 0px;
+    width: 95px;
+    height: 61px;
+    background: url(img/tail.png)no-repeat center / contain;
+    transform-origin: 0% 100%;
+    transform: rotate(10deg);
+    animation: tail 2s infinite ease;
+}
+
+.face{
+    position: relative;
+    top: 75px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(img/face-smile.png);
+    animation: face 2s infinite ease;
+}
+
+.time{
+    position: relative;
+    top: 80px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.hour,.minute {
+    width: 100px;
+    height: 100%;
+    text-align: right;
+    font-size: 70px;
+    line-height: 70px;
+}
+
+.blink{
+    width: 20px;
+    height: 100%;
+    text-align: center;
+    font-size: 80px;
+    line-height: 70px;
+    margin: 0 5px;
+}
+
+.blink p{
+    margin: 0;
+}
+
+.minute {
+    left: 135px;
+    text-align: left;
+}
+
+.date {
+    position: relative;
+    top: 80px;
+    height: 50px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.mon,.day,.week{
+    height: 100%;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.day{
+    font-weight: 400;
+}
+
+.head{
+    position: absolute;
+    width: 330px;
+    height: 237px;
+    background: url(img/face.png)no-repeat center / contain;
+}
+
+.hand{
+    position: absolute;
+    top: 180px;
+    width: 330px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    transform-origin: 50% 0;
+    animation: hands 2s infinite ease;
+}
+
+.handL,.handR{
+    width: 60px;
+    height: 60px;
+    background: url(img/hand.png)no-repeat center / contain;
+}
+
+@keyframes hands{
+    0%,100%{
+        transform: rotate(5deg)
+    }
+    50%{
+        transform: rotate(-5deg)
+    }
+}
+
+@keyframes tail{
+    0%,100%{
+        transform: rotate(-10deg)
+    }
+    50%{
+        transform: rotate(0deg)
+    }
+}
+
+@keyframes face{
+    0%,50%{
+        background-image: url(img/face-normal.png);
+    }
+    51%,100%{
+        background-image: url(img/face-smile.png);
+    }
+}
