@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&display=swap');
+
+body{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: "Gwendolyn", cursive;
+    font-weight: 700;
+}
+
+.wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 335px;
+    background: url(img/bg.png)no-repeat center top / contain;
+    filter: drop-shadow(0 10px 0 #3A283D);
+}
+
+.day{
+    position: absolute;
+    display: flex;
+    top: 38%;
+    left: 50%;
+    translate: -50% -50%;
+    color: #fff;
+    font-size: 28px;
+    align-items: center;
+}
+
+.day > div{
+    width: 10px;
+    height: 14px;
+    background: url(img/star.png)no-repeat center / contain;
+    margin: 0 5px;
+}
+
+.time{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 51%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    color: #fff;
+    font-size: 70px;
+}
+
+.time > span{
+    text-align: center;
+}
+
+#blink{
+    width: 20px;
+    height: 37px;
+    background: url(img/colon.png)no-repeat center / contain;
+}
+
+#hour{
+    width: 90px;
+}
+
+#min{
+    width: 90px;
+}
+
+#am,#sec{
+    font-size: 40px;
+    margin-top: 20px;
+    width: 73px;
+}
+
+#sec{
+    text-align: left;
+}
