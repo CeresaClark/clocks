@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>玖夜ミモ時鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+
+        <div class="time">
+            <div class="light"></div>
+            <div class="hour" id="HH"></div>
+            <div class="blink" id="blink"></div>
+            <div class="minute" id="MM"></div>
+        </div>
+
+        <div class="cross"></div>
+        <div class="arrows">
+            <div></div>
+            <div></div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        startTime();
+        blink();
+
+        function startTime() {
+            var today = new Date();
+            var hh = today.getHours(),
+                mm = today.getMinutes();
+
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b = document.getElementById('blink'), c = 1;
+            setInterval(function () {
+                b.style.opacity = (b.style.opacity == '0' ? '1' : '0');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

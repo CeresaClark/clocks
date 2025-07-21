@@ -1,0 +1,157 @@
+@font-face {
+    font-family: naikaifont;
+    src: url(https://cdn.jsdelivr.net/gh/max32002/naikaifont@1.0/webfont/NaikaiFont-Regular-Lite.woff2) format("woff2");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    position: relative;
+    width: 600px;
+    height: 300px;
+}
+
+.time {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 531px;
+    height: 164px;
+    background: url(img/bgR.png)no-repeat center / contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask:url(img/frameMask.png)no-repeat center / contain;
+}
+
+.light::before{
+    position: absolute;
+    content: '';
+    top: 50px;
+    left: -50px;
+    width: 120%;
+    height: 20px;
+    background-color: #ffffff;
+    transform: rotate(10deg);
+    animation: light_ani 3s infinite linear;
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+}
+
+.hour,
+.minute {
+    font-family: naikaifont;
+    font-weight: bold;
+    width: 200px;
+    height: 120px;
+    text-align: right;
+    font-size: 120px;
+    letter-spacing: 3px;
+    line-height: 120px;
+    color: #ffe3e8;
+}
+
+.minute{
+    text-align: left;
+}
+
+.blink ,.cross {
+    width: 60px;
+    height: 50px;
+    background: url(img/crossR.png)no-repeat center / contain;
+}
+
+.cross{
+    position: absolute;
+    top: 45px;
+    width: 200px;
+    height: 250px;
+    transform: rotate(-20deg);
+    animation: cross_ani 5s infinite ease-in-out;
+}
+
+.arrows{
+    position: absolute;
+    top: 28px;
+    right: 20px;
+    width: 70px;
+    height: 60px;
+    display: flex;
+}
+
+.arrows div{
+    width: 50%;
+    height: 100%;
+    background: url(img/arrowR.png)no-repeat center top / contain;
+    transform-origin: 50% 0;
+    animation: arrow_ani 3s infinite alternate ease-in-out;
+}
+
+@keyframes light_ani {
+
+    0% {
+        top: 210px;
+    }
+
+    100% {
+        top: -60px;
+    }
+}
+
+@keyframes cross_ani {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(0.7);
+    }
+}
+
+@keyframes arrow_ani{
+    0%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+
+
+
+/* .box {
+    transform: scaleX(-1);
+}
+
+.time {
+    background-image: url(img/bgB.png);
+    flex-direction: row-reverse;
+}
+
+.hour,
+.minute{
+    transform: scaleX(-1);
+    color: #4d5188;
+}
+
+.blink,.cross{
+    background-image: url(img/crossB.png);
+}
+
+.arrows div{
+    background-image: url(img/arrowB.png);
+} */
