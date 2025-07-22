@@ -26,16 +26,17 @@ body {
     align-items: center;
 }
 
-.light{
+.light {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     -webkit-mask:url(img/frameMask.png)no-repeat center / contain;
+    mix-blend-mode: overlay;
 }
 
-.light::before{
+.light::before {
     position: absolute;
     content: '';
     top: 50px;
@@ -43,9 +44,7 @@ body {
     width: 120%;
     height: 20px;
     background-color: #ffffff;
-    transform: rotate(10deg);
-    animation: light_ani 3s infinite linear;
-    mix-blend-mode: overlay;
+    animation: light_ani 5s infinite linear reverse;
     opacity: 0.3;
 }
 
@@ -62,17 +61,18 @@ body {
     color: #ffe3e8;
 }
 
-.minute{
+.minute {
     text-align: left;
 }
 
-.blink ,.cross {
+.blink,
+.cross {
     width: 60px;
     height: 50px;
     background: url(img/crossR.png)no-repeat center / contain;
 }
 
-.cross{
+.cross {
     position: absolute;
     top: 45px;
     width: 200px;
@@ -81,7 +81,7 @@ body {
     animation: cross_ani 5s infinite ease-in-out;
 }
 
-.arrows{
+.arrows {
     position: absolute;
     top: 28px;
     right: 20px;
@@ -90,7 +90,7 @@ body {
     display: flex;
 }
 
-.arrows div{
+.arrows div {
     width: 50%;
     height: 100%;
     background: url(img/arrowR.png)no-repeat center top / contain;
@@ -101,11 +101,11 @@ body {
 @keyframes light_ani {
 
     0% {
-        top: 210px;
+        transform: rotate(90deg);
     }
 
     100% {
-        top: -60px;
+        transform: rotate(-90deg);
     }
 }
 
@@ -121,11 +121,12 @@ body {
     }
 }
 
-@keyframes arrow_ani{
-    0%{
+@keyframes arrow_ani {
+    0% {
         transform: rotate(-5deg);
     }
-    100%{
+
+    100% {
         transform: rotate(0deg);
     }
 }
@@ -135,6 +136,10 @@ body {
 
 /* .box {
     transform: scaleX(-1);
+}
+
+.light::before {
+    animation: light_ani 5s infinite linear;
 }
 
 .time {
