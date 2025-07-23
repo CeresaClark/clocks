@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    position: relative;
+    width: 350px;
+    height: 166px;
+}
+
+.time {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 329px;
+    height: 166px;
+    background: url(img/clockBG.png)no-repeat center / contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hour,
+.minute {
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: 700;
+    flex: 1;
+    height: 50px;
+    text-align: right;
+    font-size: 70px;
+    line-height: 60px;
+    color: #ffffff;
+}
+
+.minute {
+    text-align: left;
+}
+
+.blink {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 15px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blink div{
+    position: relative;
+    width: 100%;
+    height: 30%;
+    background: url(img/eye2.png)no-repeat center / contain;
+}
+
+.blink div::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 50%;
+    height: 50%;
+    background: url(img/eye1.png)no-repeat center / contain;
+    animation: eye1_ani 3s infinite ease-in-out reverse;
+}
+
+.blink div:last-child::after{
+    animation: eye1_ani 3s infinite ease-in-out;
+}
+
+.tentacles,.tentaclesB{
+    position: absolute;
+    width: 100%;
+}
+
+.tentacles div:first-child,.tentaclesB div:first-child{
+    position: absolute;
+    left: 6px;
+    top: 91px;
+    transform: rotate(-24deg);
+    width: 70px;
+    height: 70px;
+    background: url(img/tentacle1.gif)no-repeat center / contain;
+}
+
+.tentacles div:first-child{
+    -webkit-mask: linear-gradient(to right,#fff 70%,#ffffff00 71%);
+}
+
+.tentacles div:last-child,.tentaclesB div:last-child{
+    position: absolute;
+    right: 0px;
+    top: 90px;
+    width: 90px;
+    height: 70px;
+    background: url(img/tentacle2.gif)no-repeat center / contain;
+}
+
+.tentacles div:last-child{
+    -webkit-mask: linear-gradient(to left,#fff 80%,#ffffff00 81%);
+}
+
+.eyes{
+    position: relative;
+    transform: translate(-50 , -50%);
+    background: url(img/eye2.png)no-repeat center / contain;
+}
+
+.eyes::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 50%;
+    height: 50%;
+    background: url(img/eye1.png)no-repeat center / contain;
+    animation: eye1_ani 5s infinite ease-in-out reverse;
+}
+
+
+@keyframes eye1_ani{
+    0%,100%{
+        top: 42%;
+        left: 42%;
+    }
+    25%{
+        top: 42%;
+        left: 58%;
+    }
+    50%{
+        top: 58%;
+        left: 58%;
+    }
+    75%{
+        top: 58%;
+        left: 42%;
+    }
+}

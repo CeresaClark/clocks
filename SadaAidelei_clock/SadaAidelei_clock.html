@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title>玖夜ミモ時鐘</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+
+        <div class="tentaclesB">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="time">
+            <div class="hour" id="HH"></div>
+            <div class="blink" id="blink">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="minute" id="MM"></div>
+        </div>
+
+        <div class="tentacles">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="eyes"></div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        startTime();
+
+        function startTime() {
+            var today = new Date();
+            var hh = today.getHours(),
+                mm = today.getMinutes();
+
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+
+            $('#HH').html(hh);
+            $('#MM').html(mm);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function eyeShow() {
+
+            $('.eyes').delay(100).animate({
+                'width': sizeR + 'px',
+                'height': sizeR + 'px',
+
+            }, 1000)
+        }
+
+        setInterval(() => {
+            let tR = 40 + Math.random() * 60,
+                lR = 10 + Math.random() * 80,
+                sizeR = 30 + Math.random() * 10
+
+            if(lR > 15 && lR < 85){
+                let ar=[40,90]
+                tR = ar[Math.floor(Math.random() * 2)]
+                console.log(lR + '/' + tR)
+            }
+
+            $('.eyes').css({
+                'top': 'calc(' + tR + '% - ' + sizeR + 'px)',
+                'left': 'calc(' + lR + '% - ' + sizeR + 'px)',
+                'width': '0px',
+                'height': '0px',
+            })
+            setTimeout(() => {
+                $('.eyes').animate({
+                    'width': sizeR + 'px',
+                    'height': sizeR + 'px',
+                }, 500)
+            }, 100);
+
+            setTimeout(() => {
+                $('.eyes').animate({
+                    'width': '0px',
+                    'height': '0px',
+                }, 500)
+            }, 8000);
+
+        }, 10000);
+
+    </script>
+</body>
+
+</html>
