@@ -7,7 +7,7 @@ body {
 
 .box {
     position: relative;
-    width: 350px;
+    width: 400px;
     height: 166px;
 }
 
@@ -81,7 +81,7 @@ body {
 
 .tentacles div:first-child,.tentaclesB div:first-child{
     position: absolute;
-    left: 6px;
+    left: 40px;
     top: 91px;
     transform: rotate(-24deg);
     width: 70px;
@@ -95,7 +95,7 @@ body {
 
 .tentacles div:last-child,.tentaclesB div:last-child{
     position: absolute;
-    right: 0px;
+    right: 20px;
     top: 90px;
     width: 90px;
     height: 70px;
@@ -124,6 +124,54 @@ body {
     animation: eye1_ani 5s infinite ease-in-out reverse;
 }
 
+.clouds{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.clouds div{
+    position: absolute;
+    background: url(img/clock_could.png)no-repeat center / contain;
+}
+
+.clouds div:first-child{
+    top: 25%;
+    left: 0;
+    width: 60%;
+    height: 70px;
+    background-position: left;
+    animation: cloud_ani 5s infinite ease-in-out alternate;
+}
+
+.clouds div:last-child{
+    top: 60%;
+    right: 0;
+    width: 50%;
+    height: 60px;
+    background-position: right;
+    animation: cloud_ani2 5s infinite ease-in-out alternate;
+}
+
+.textL,.textR{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 75%;
+    filter: drop-shadow(0 0 5px red);
+    background: url(img/text1.png)no-repeat center / contain;
+    animation: text_ani 2s infinite ease-in-out alternate;
+    display: none;
+}
+
+.textL{
+    left: 10%;
+}
+
+.textR{
+    right: 10%;
+    animation-duration: 3s;
+}
 
 @keyframes eye1_ani{
     0%,100%{
@@ -141,5 +189,32 @@ body {
     75%{
         top: 58%;
         left: 42%;
+    }
+}
+
+@keyframes cloud_ani{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(5%);
+    }
+}
+
+@keyframes cloud_ani2{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-8%);
+    }
+}
+
+@keyframes text_ani{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-20%);
     }
 }
