@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'UoqMunThenKhung';
+    src: url('UoqMunThenKhung-1.000.ttf') format("truetype");
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'UoqMunThenKhung';
+}
+
+.box {
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+
+.cube1,
+.cube2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #ece2eb;
+    border: #120d31 3px solid;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.75));
+}
+
+.cube1 {
+    transform: translate(-220%, -50%) rotate(45deg);
+    animation: cube1_ani 4s infinite ease-in-out;
+}
+
+.cube2 {
+    transform: translate(120%, -50%) rotate(45deg);
+    animation: cube2_ani 4s infinite ease-in-out;
+}
+
+.cubeM {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: #120d31 3px solid;
+    background: linear-gradient(135deg, #fff8fc 20%, #baa8be);
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.75));
+}
+
+.timeWrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 280px;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: #120d31;
+    background-color: #baa8be80;
+}
+
+.date {
+    width: 65%;
+    font-size: 23px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+}
+
+.hour,
+.minute,
+.blink {
+    text-align: center;
+    font-size: 65px;
+    line-height: 65px;
+}
+
+@keyframes cube1_ani {
+    0% {
+        transform: translate(-220%, -50%) rotate(45deg);
+    }
+
+    12.5% {
+        transform: translate(-130%, -130%) rotate(90deg);
+    }
+
+    25% {
+        transform: translate(-50%, -220%) rotate(135deg);
+    }
+
+    37.5% {
+        transform: translate(30%, -130%) rotate(180deg);
+    }
+
+    50% {
+        transform: translate(120%, -50%) rotate(225deg);
+    }
+
+    62.5% {
+        transform: translate(30%, 30%) rotate(270deg);
+    }
+
+    75% {
+        transform: translate(-50%, 130%) rotate(315deg);
+    }
+
+    87.5% {
+        transform: translate(-130%, 30%) rotate(360deg);
+    }
+
+    100% {
+        transform: translate(-220%, -50%) rotate(405deg);
+    }
+}
+
+@keyframes cube2_ani {
+
+    0% {
+        transform: translate(120%, -50%) rotate(45deg);
+    }
+
+    12.5% {
+        transform: translate(30%, 30%) rotate(90deg);
+    }
+
+    25% {
+        transform: translate(-50%, 130%) rotate(135deg);
+    }
+
+    37.5% {
+        transform: translate(-130%, 30%) rotate(180deg);
+    }
+
+    50% {
+        transform: translate(-220%, -50%) rotate(225deg);
+    }
+    
+    62.50% {
+        transform: translate(-130%, -130%) rotate(270deg);
+    }
+
+    75% {
+        transform: translate(-50%, -220%) rotate(315deg);
+    }
+
+    87.5% {
+        transform: translate(30%, -130%) rotate(360deg);
+    }
+
+    100% {
+        transform: translate(120%, -50%) rotate(405deg);
+    }
+}

@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <title>西奇時鐘2</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="startTime();blink();" style="text-align: center;">
+    <div class="box">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+        <div class="cubeM"></div>
+        <div class="timeWrap">
+            <div class="date"></div>
+            <div class="time">
+                <div class="hour" id="HH"></div>
+                <div class="blink" id="blink">:</div>
+                <div class="minute" id="MM"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                ww = today.getDay(),
+                hh = today.getHours(),
+                mm = today.getMinutes();
+
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            mon = checkTime(mon);
+
+            switch (ww) {
+                case 1:
+                    W = '一';
+                    break;
+                case 2:
+                    W = '二';
+                    break;
+                case 3:
+                    W = '三';
+                    break;
+                case 4:
+                    W = '四';
+                    break;
+                case 5:
+                    W = '五';
+                    break;
+                case 6:
+                    W = '六';
+                    break;
+                case 0:
+                    W = '日';
+                    break;
+            }
+
+            $('.hour').html(hh);
+            $('.minute').html(mm);
+            $('.date').html(yy + "/" + mon + "/" + dd + "(" + W + ")");
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b1 = document.getElementById('blink');
+            setInterval(function () {
+                b1.style.opacity = (b1.style.opacity == '0' ? '1' : '0');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
