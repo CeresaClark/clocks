@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'ComputerNumber';
+    src: url('ComputerNumber-Regular.ttf') format("truetype");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'ComputerNumber';
+}
+
+.box {
+    position: relative;
+    width: 620px;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(54, 255, 255, 0.7), rgba(0, 113, 157, 0.9));
+    border-radius: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box::before,
+.box::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 612px;
+    height: 192px;
+    border-radius: 100px;
+    border: #ffffff 5px solid;
+    z-index: 10;
+}
+
+.box::before {
+    width: 604px;
+    height: 184px;
+    border: #00A9FF 8px solid;
+}
+
+.bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: url(img/gress.gif)no-repeat center / contain;
+}
+
+.bobble,
+.fishes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.bobble div {
+    position: absolute;
+    top: 100%;
+    width: 44px;
+    height: 134px;
+    background: url(img/bobble.png)no-repeat center / contain;
+    animation: bobble_ani 5s infinite linear;
+}
+
+.bobble div:nth-child(1) {
+    left: 50px;
+    animation-delay: 5s;
+    animation-duration: 12s;
+}
+
+.bobble div:nth-child(2) {
+    left: 100px;
+    transform: scale(0.7);
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+.bobble div:nth-child(3) {
+    left: 180px;
+    transform: scale(0.8);
+    animation-delay: 4s;
+    animation-duration: 8s;
+}
+
+.bobble div:nth-child(4) {
+    right: 200px;
+    transform: scale(0.9);
+    animation-delay: 2s;
+    animation-duration: 6s;
+}
+
+.bobble div:nth-child(5) {
+    right: 70px;
+    transform: scale(0.8);
+    animation-delay: 3s;
+    animation-duration: 7s;
+}
+
+.fishes div:nth-child(1) {
+    position: absolute;
+    transform: rotate(-40deg)translateX(180px);
+    width: 213px;
+    height: 57px;
+    background: url(img/fishes1.gif)no-repeat center / contain;
+    animation: fish_ani1 5s infinite linear;
+}
+
+.fishes div:nth-child(2) {
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    transform: rotate(-40deg)translateX(-110px);
+    width: 131px;
+    height: 39px;
+    background: url(img/fishes2.gif)no-repeat center / contain;
+    animation: fish_ani2 5s 3s infinite linear;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(rgb(0, 153, 255) 0 0 5px)drop-shadow(rgba(0, 204, 255, 0.5) 0 0 10px);
+}
+
+.hour,
+.minute {
+    margin-left: -26px;
+    text-align: center;
+    font-size: 100px;
+    letter-spacing: -25px;
+    color: #ffffff;
+}
+
+.blink {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.blink div {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.day {
+    width: 100px;
+    font-family: "Noto Sans SC", sans-serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+    margin-left: 30px;
+    line-height: 1.1;
+    filter: drop-shadow(rgb(0, 153, 255) 0 0 5px)drop-shadow(rgba(0, 204, 255, 0.5) 0 0 10px);
+}
+
+@keyframes bobble_ani {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: -100%;
+    }
+}
+
+@keyframes fish_ani1 {
+    0% {
+        transform: rotate(-40deg)translateX(180px);
+    }
+
+    100% {
+        transform: rotate(-40deg)translateX(-250px);
+    }
+}
+
+@keyframes fish_ani2 {
+    0% {
+        transform: rotate(-40deg)translateX(-110px);
+    }
+
+    100% {
+        transform: rotate(-40deg)translateX(300px);
+    }
+}
