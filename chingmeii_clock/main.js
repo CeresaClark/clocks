@@ -20,12 +20,4 @@ function startTime() {
     var timeoutId = setTimeout(startTime, 1000);
 }
 
-function blink() {
-    var $b = $('.blink');
-    setInterval(function () {
-        $b.css('opacity', $b.css('opacity') == '0' ? '1' : '0');
-    }, 1000);
-}
-
 startTime()
-blink()
