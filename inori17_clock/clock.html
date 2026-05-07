@@ -1,0 +1,218 @@
+<html>
+
+<head>
+    <title>荻野いのり時鐘</title>
+    <meta charset="utf-8">
+    <style>
+        @font-face {
+            font-family: "justinbeaverfont-slim-proportional";
+            src: url(img/justinbeaverfont-slim-proportional.ttf) format("truetype");
+        }
+
+        body {
+            font-family: 'justinbeaverfont-slim-proportional';
+        }
+
+        .wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            background: url(img/bg.png)no-repeat center / contain;
+        }
+
+        #hr,
+        #blink,
+        #min,
+        #hr2,
+        #blink2,
+        #min2 {
+            position: absolute;
+            color: #424153;
+            font-size: 140px;
+            text-align: right;
+            top: 150px;
+            left: 173px;
+            z-index: 2;
+        }
+
+        #blink,#blink2 {
+            top: 152px;
+            left: 267px;
+            color: #d34d82;
+            text-align: center;
+        }
+
+        #min,#min2 {
+            top: 165px;
+            left: 305px;
+            text-align: left;
+        }
+
+        #date,#date2 {
+            position: absolute;
+            color: #d34d82;
+            font-size: 68px;
+            left: 232px;
+            top: 270px;
+            z-index: 2;
+        }
+
+        #hr2,
+        #blink2,
+        #min2,#date2 {
+            -webkit-text-stroke: #ffe7cd 6px;
+            z-index: 1;
+        }
+
+        .dot {
+            color: #424153;
+        }
+        .hornL{
+            position: absolute;
+            left: 160px;
+            top: 50px;
+            transform: rotate(-40deg);
+            width: 35px;
+            height: 50px;
+            transform-origin: 0% 100%;
+            animation: hornL_ani 2s infinite ease-in-out alternate;
+            background: url(img/hornL.png)no-repeat center top / contain;
+            z-index: -1;
+        }
+        .hornR{
+            position: absolute;
+            left: 290px;
+            top: 5px;
+            transform: rotate(10deg);
+            width: 35px;
+            height: 50px;
+            transform-origin: 100% 100%;
+            animation: hornR_ani 2s infinite ease-in-out alternate;
+            background: url(img/hornR.png)no-repeat center top / contain;
+            z-index: -1;
+        }
+        .bow{
+            position: absolute;
+            right: 98px;
+            top: 170px;
+            width: 115px;
+            height: 105px;
+            transform-origin: 45% 0;
+            animation: bow_ani 2s infinite ease-in-out alternate;
+            background: url(img/bow.png)no-repeat center / contain;
+        }
+        .ok{
+            position: absolute;
+            bottom: 70px;
+            left: 60px;
+            transform: rotate(9deg);
+            width: 90px;
+            height: 90px;
+            animation: ok_ani 1s infinite ease-in-out alternate;
+            background: url(img/ok.png)no-repeat center / contain;
+        }
+
+        @keyframes hornL_ani{
+            0%{
+                transform: rotate(-40deg);
+            }
+            100%{
+                transform: rotate(-30deg);
+            }
+        }
+
+        @keyframes hornR_ani{
+            0%{
+                transform: rotate(10deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes bow_ani{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(-10deg);
+            }
+        }
+
+        @keyframes ok_ani{
+            0%{
+                transform: rotate(9deg);
+            }
+            100%{
+                transform: rotate(-9deg);
+            }
+        }
+    </style>
+</head>
+
+<body onload="startTime();blink();">
+    <div class='wrap'>
+        <div id="hr">10</div>
+        <div id="hr2">10</div>
+        <div id="blink">:</div>
+        <div id="blink2">:</div>
+        <div id="min">20</div>
+        <div id="min2">20</div>
+        <div id="date">
+            <span id="year">2026</span><span class="dot">.</span><span id="mon">05</span><span class="dot">.</span><span id="day">06</span>
+        </div>
+        <div id="date2">
+            <span id="year2">2026</span><span class="dot">.</span><span id="mon2">05</span><span class="dot">.</span><span id="day2">06</span>
+        </div>
+        <div class="hornL"></div>
+        <div class="hornR"></div>
+        <div class="bow"></div>
+        <div class="ok"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var yy = today.getFullYear(),
+                mon = today.getMonth() + 1,
+                dd = today.getDate(),
+                hh = today.getHours(),
+                mm = today.getMinutes();
+
+            hh = hh.toString().padStart(2, '0')
+            mm = mm.toString().padStart(2, '0')
+            yy = yy.toString().padStart(2, '0')
+            mon = mon.toString().padStart(2, '0')
+            dd = dd.toString().padStart(2, '0')
+
+
+            $('#hr,#hr2').html(hh);
+            $('#min,#min2').html(mm);
+            $('#year,#year2').html(yy);
+            $('#mon,#mon2').html(mon);
+            $('#day,#day2').html(dd);
+            var timeoutId = setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function blink() {
+            var b = document.getElementById('blink');
+            var b2 = document.getElementById('blink2');
+            setInterval(function () {
+                b.style.display = (b.style.display == 'none' ? '' : 'none');
+                b2.style.display = (b2.style.display == 'none' ? '' : 'none');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
