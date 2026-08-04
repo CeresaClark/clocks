@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: "Alumni Sans SC", sans-serif;
+    font-weight: 500;
+    /* background-color: rgb(0, 0, 0); */
+}
+
+.wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 570px;
+    background: url(img/bg.png)no-repeat center top / contain;
+}
+
+.day {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    color: #E10011;
+    font-size: 140px;
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+}
+
+.time {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50% , 0%);
+    width: 100%;
+    color: #E10011;
+    font-size: 250px;
+    line-height: 1;
+    letter-spacing: 20px;
+}
+
+#blink {
+    width: 50px;
+    height: 250px;
+    margin: 0 20px;
+    background: url(img/blind.png)no-repeat center / contain;
+}
+
+.hour {
+    width: 250px;
+    text-align: right;
+}
+
+.min {
+    width: 250px;
+    text-align: left;
+    padding-left: 10px;
+}
